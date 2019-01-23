@@ -26,42 +26,43 @@ class App extends Component {
       name: this.state.name.filter(a => a !== e)
     });
   };
-  style = {
-    width: "18rem"
-  };
+
   render() {
     return (
       <div>
         <Header />
         <Finder addUser={this.addUser} />
+
         <div>
-          {this.state.name.map(user => (
-            <div className="card m-2" key={user.id}>
-              <img
-                style={this.style}
-                className="card-img-top"
-                src={user.avatar_url}
-                alt="Card  cap"
-              />
-              <div className="card-body">
-                <h5 className="card-title"> Name : {user.login}</h5>
+          <div style={{ display: "flex" }}>
+            {this.state.name.map(user => (
+              <div className="card m-2" key={user.id}>
+                <img
+                  style={this.style}
+                  className="card-img-top"
+                  src={user.avatar_url}
+                  alt="Card  cap"
+                />
+                <div className="card-body">
+                  <h5 className="card-title"> Name : {user.login}</h5>
+                </div>
+                <ul className="list-group list-group-flush">
+                  <li className="list-group-item">
+                    Followers : {user.followers}
+                  </li>
+                  <li className="list-group-item">
+                    Following : {user.following}
+                  </li>
+                </ul>
+                <button
+                  onClick={() => this.deleteDiv(user)}
+                  className="btn btn-primary m-2"
+                >
+                  Delete
+                </button>
               </div>
-              <ul className="list-group list-group-flush">
-                <li className="list-group-item">
-                  Followers : {user.followers}
-                </li>
-                <li className="list-group-item">
-                  Following : {user.following}
-                </li>
-              </ul>
-              <button
-                onClick={() => this.deleteDiv(user)}
-                className="btn btn-danger"
-              >
-                Delete
-              </button>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     );

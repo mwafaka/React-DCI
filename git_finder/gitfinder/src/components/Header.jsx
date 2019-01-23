@@ -5,7 +5,7 @@ export class Header extends Component {
     return (
       <div>
         <header style={headerStyle}>
-          <h1>Github_finder</h1>
+          <h1>Github_Finder</h1>
         </header>
       </div>
     );
