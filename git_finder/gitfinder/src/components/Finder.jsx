@@ -24,6 +24,7 @@ export class Finder extends Component {
             placeholder="Add to do ..."
             value={this.state.value}
             onChange={this.onChange}
+            required
           />
           <input
             type="submit"

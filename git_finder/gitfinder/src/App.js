@@ -14,11 +14,29 @@ class App extends Component {
       .get(
         `http://api.github.com/users/${username}?client_id=7716153ddf73a09ea237&client_secret=dcb398cb1f6af9c5d489dd345ca6d70db2d0ad86`
       )
-      .then(res =>
-        this.setState({
-          name: [...this.state.name, res.data]
-        })
-      );
+
+      .then(res => {
+        let userExist = false;
+        if (this.state.name.length == 0) {
+          this.setState({ name: [...this.state.name, res.data] });
+        } else {
+          for (let user of this.state.name) {
+            if (user.id == res.data.id) {
+              userExist = true;
+            }
+          }
+          if (!userExist) {
+            this.setState({ name: [...this.state.name, res.data] });
+          } else {
+            alert("this Name is token ");
+          }
+        }
+
+        //if(this.state.name==res.data)
+
+        // console.log(this.state.name);
+        // console.log(res.data.id);
+      });
   };
 
   deleteDiv = e => {
@@ -32,7 +50,6 @@ class App extends Component {
       <div>
         <Header />
         <Finder addUser={this.addUser} />
-
         <div>
           <div style={{ display: "flex" }}>
             {this.state.name.map(user => (
