@@ -31,11 +31,6 @@ class App extends Component {
             alert("this Name is token ");
           }
         }
-
-        //if(this.state.name==res.data)
-
-        // console.log(this.state.name);
-        // console.log(res.data.id);
       });
   };
 

@@ -30,11 +30,13 @@ class App extends Component {
       borderRadius: "50%",
       padding: "15px"
     };
+    //arr variable
     let arr = this.state.Number.map(x => (
       <span onClick={() => this.remove(x)} style={style} key={x}>
         {x}
       </span>
     ));
+    //arr2 variable
     let arr2 = this.state.output.map(b => (
       <span onClick={() => this.restore(b)} style={style} key={b}>
         {b}
