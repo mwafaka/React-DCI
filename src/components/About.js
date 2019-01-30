@@ -80,40 +80,9 @@ class About extends React.Component {
             </FormText>
           </Col>
         </FormGroup>
-        <FormGroup tag="fieldset" row>
-          <legend className="col-form-label col-sm-2">Radio Buttons</legend>
-          <Col sm={10}>
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio2" /> Option one is this and
-                that—be sure to include why it's great
-              </Label>
-            </FormGroup>
-            <FormGroup check>
-              <Label check>
-                <Input type="radio" name="radio2" /> Option two can be something
-                else and selecting it will deselect option one
-              </Label>
-            </FormGroup>
-            <FormGroup check disabled>
-              <Label check>
-                <Input type="radio" name="radio2" disabled /> Option three is
-                disabled
-              </Label>
-            </FormGroup>
-          </Col>
-        </FormGroup>
+
         <FormGroup row>
-          <Label for="checkbox2" sm={2}>
-            Checkbox
-          </Label>
-          <Col sm={{ size: 10 }}>
-            <FormGroup check>
-              <Label check>
-                <Input type="checkbox" id="checkbox2" /> Check me out
-              </Label>
-            </FormGroup>
-          </Col>
+          <Col sm={{ size: 10 }} />
         </FormGroup>
         <FormGroup check row>
           <Col sm={{ size: 10, offset: 2 }}>

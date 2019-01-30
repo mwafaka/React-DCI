@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-
 import { BrowserRouter, Route } from "react-router-dom";
 import { getData } from "./components/quiz";
 import Header from "./components/Header";
@@ -14,7 +13,8 @@ class App extends Component {
     evaluate: "",
     userAnswers: [],
     id: [],
-    modalOpen: false
+    modalOpen: false,
+    truth: []
   };
   ///check the Answer.......
   handleAnswer = (q, e) => {
@@ -29,7 +29,10 @@ class App extends Component {
         evaluate: <h4>{q.explanation}</h4>
       });
     } else {
-      this.setState({ modalOpen: true, evaluate: "correct" });
+      this.setState({
+        modalOpen: true,
+        evaluate: "correct"
+      });
     }
   };
   toggleModal = () => {
@@ -44,37 +47,54 @@ class App extends Component {
         <div className="App">
           <Header />
 
-          <form onSubmit={this.o}>
-            <hr />
-            {this.state.quiz.map(q => (
-              <div key={q.id}>
-                <h1 className="text-info primary">{q.question}</h1>
-                <img src={q.image} />
-
-                <hr />
-                {q.choices.map(a => (
-                  <label key={a} className="text-success">
-                    <input
-                      type="checkbox"
-                      onClick={() => this.handleAnswer(q, a)}
-                      ref="check_me"
-                    />{" "}
-                    {a}
-                  </label>
-                ))}
-                <hr />
-              </div>
-            ))}
-          </form>
-          <Modal1
-            toggleModalHandler={this.toggleModal}
-            modalOpen={this.state.modalOpen}
-            modalContent={this.state.evaluate}
-          />
-
           <switch>
-            <Route exact path="/" />
+            <Route
+              exact
+              path="/"
+              render={props => (
+                <form onSubmit={this.o}>
+                  <hr />
+                  {this.state.quiz.map(q => (
+                    <div key={q.id}>
+                      <h1 className="text-info primary">{q.question}</h1>
+                      <img src={q.image} />
 
+                      <hr />
+                      {q.choices.map(a => (
+                        <label key={a} className="text-success">
+                          <input
+                            type="checkbox"
+                            onClick={() => this.handleAnswer(q, a)}
+                            ref="check_me"
+                          />{" "}
+                          {a}
+                        </label>
+                      ))}
+                      <br />
+                      <form>
+                        <span style={style3}>{this.state.truth}</span>
+                        <button
+                          className="btn-danger btn-sm"
+                          reset={() => this.reset(q)}
+                        >
+                          Reset
+                        </button>
+                      </form>
+
+                      <hr />
+                    </div>
+                  ))}
+                  <form>
+                    <button className="btn-primary btn-sm">Result</button>
+                  </form>
+                  <Modal1
+                    toggleModalHandler={this.toggleModal}
+                    modalOpen={this.state.modalOpen}
+                    modalContent={this.state.evaluate}
+                  />
+                </form>
+              )}
+            />
             <Route path="/about" component={About} />
           </switch>
         </div>
@@ -82,5 +102,10 @@ class App extends Component {
     );
   }
 }
+const style3 = {
+  fontSize: "25px",
+  borderColor: "black",
+  borderWidth: "1"
+};
 
 export default App;

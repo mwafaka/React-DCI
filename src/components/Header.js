@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from "react-router-dom";
-export class Header extends Component {
+class Header extends Component {
   style = {
     backgroundColor: "grey",
     color: "#ffffff",
@@ -17,13 +17,15 @@ export class Header extends Component {
       <div>
         <header style={headerStyle}>
           <h1>Quiz</h1>
-          <Link style={headerStyle} to="/">
-            Home
-          </Link>{" "}
-          |{" "}
-          <Link to="/about" style={headerStyle}>
-            Create Quiz
-          </Link>
+          <header style={headerStyle}>
+            <Link style={headerStyle} to="/">
+              Home
+            </Link>{" "}
+            |{" "}
+            <Link style={headerStyle} to="/about">
+              About
+            </Link>
+          </header>
         </header>
       </div>
     );
