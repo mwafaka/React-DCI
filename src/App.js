@@ -14,7 +14,7 @@ class App extends Component {
     userAnswers: [],
     id: [],
     modalOpen: false,
-    truth: []
+    truth1: "???"
   };
   ///check the Answer.......
   handleAnswer = (q, e) => {
@@ -26,12 +26,14 @@ class App extends Component {
     if (q.correct !== e) {
       this.setState({
         modalOpen: true,
-        evaluate: <h4>{q.explanation}</h4>
+        evaluate: <h4>{q.explanation}</h4>,
+        truth1: "False"
       });
     } else {
       this.setState({
         modalOpen: true,
-        evaluate: "correct"
+        evaluate: "correct",
+        truth1: "True"
       });
     }
   };
@@ -40,19 +42,25 @@ class App extends Component {
       modalOpen: !this.state.modalOpen
     });
   };
-
+  getColor1 = () => {
+    return this.props.modalContent === "correct"
+      ? "badge badge-pill bg-primary"
+      : "badge badge-pill bg-danger";
+  };
   render() {
     return (
       <BrowserRouter>
         <div className="App">
           <Header />
-
           <switch>
             <Route
               exact
               path="/"
               render={props => (
-                <form onSubmit={this.o}>
+                <form>
+                  <span className="badge badge-pill bg-danger">
+                    {this.state.truth1}
+                  </span>
                   <hr />
                   {this.state.quiz.map(q => (
                     <div key={q.id}>
@@ -72,7 +80,6 @@ class App extends Component {
                       ))}
                       <br />
                       <form>
-                        <span style={style3}>{this.state.truth}</span>
                         <button
                           className="btn-danger btn-sm"
                           reset={() => this.reset(q)}
