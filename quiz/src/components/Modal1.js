@@ -25,7 +25,7 @@ class Modal1 extends React.Component {
             {this.props.modalContent}
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.props.toggleModalHandler}>
+            <Button color="secondary" onClick={this.props.toggleModalHandler}>
               Ok
             </Button>
           </ModalFooter>

@@ -13,8 +13,7 @@ class App extends Component {
     evaluate: "",
     userAnswers: [],
     id: [],
-    modalOpen: false,
-    truth1: "???"
+    modalOpen: false
   };
   ///check the Answer.......
   handleAnswer = (q, e) => {
@@ -26,14 +25,12 @@ class App extends Component {
     if (q.correct !== e) {
       this.setState({
         modalOpen: true,
-        evaluate: <h4>{q.explanation}</h4>,
-        truth1: "False"
+        evaluate: <h4>{q.explanation}</h4>
       });
     } else {
       this.setState({
         modalOpen: true,
-        evaluate: "correct",
-        truth1: "True"
+        evaluate: "correct"
       });
     }
   };
@@ -58,13 +55,10 @@ class App extends Component {
               path="/"
               render={props => (
                 <form>
-                  <span className="badge badge-pill bg-danger">
-                    {this.state.truth1}
-                  </span>
                   <hr />
                   {this.state.quiz.map(q => (
                     <div key={q.id}>
-                      <h1 className="text-info primary">{q.question}</h1>
+                      <h3 className="text-secondary">{q.question}</h3>
                       <img src={q.image} />
 
                       <hr />
@@ -85,7 +79,7 @@ class App extends Component {
                     </div>
                   ))}
                   <form>
-                    <button className="btn-primary btn-sm">Result</button>
+                    <button className="btn-secondary btn-sm">Result</button>
                   </form>
                   <Modal1
                     toggleModalHandler={this.toggleModal}

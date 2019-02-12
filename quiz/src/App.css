@@ -34,3 +34,9 @@
 .body-danger {
   background-color: red;
 }
+.modal-footer {
+  background-color: gray;
+}
+.modal-header {
+  background-color: gray;
+}

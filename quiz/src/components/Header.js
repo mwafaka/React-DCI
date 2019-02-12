@@ -25,7 +25,7 @@ class Header extends Component {
             </Link>{" "}
             |{" "}
             <Link style={headerStyle} to="/about">
-              Add Que
+              Add Question
             </Link>
           </header>
         </header>

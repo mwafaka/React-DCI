@@ -8,7 +8,8 @@ class About extends React.Component {
     choice1: "",
     choice2: "",
     choice3: "",
-    answer: ""
+    answer: "",
+    questions: []
   };
 
   onChange = e => {
@@ -19,6 +20,35 @@ class About extends React.Component {
 
   onSubmit = e => {
     e.preventDefault();
+    if ((this.state.question = "")) {
+      return;
+    }
+    const {
+      question,
+      choice1,
+      choice2,
+      choice3,
+      answer,
+      questions
+    } = this.state;
+
+    let newQuestion = {
+      question,
+      choice1,
+      choice2,
+      choice3,
+      answer
+    };
+
+    this.setState({
+      questions: [...questions, newQuestion],
+      question: "",
+      choice1: "",
+      choice2: "",
+      choice3: "",
+      answer: ""
+    });
+    e.target.reset();
   };
 
   render() {
@@ -100,24 +130,30 @@ class About extends React.Component {
               />
             </Col>
           </FormGroup>
+
+          <button>Submit</button>
         </Form>
         <br />
-        <div>
-          <h4 style={style1}>Question : {this.state.question}</h4>
-          <h4 style={style1}>Choice 1 :{this.state.choice1}</h4>
-          <h4 style={style1}> Choice 2 :{this.state.choice2}</h4>
-          <h4 style={style1}>Choice 3 :{this.state.choice3}</h4>
-          <h4 style={style1}> Correct Answer :{this.state.answer}</h4>
-        </div>
+
+        {this.state.questions &&
+          this.state.questions.map(q => {
+            return (
+              <div className="container">
+                <ol className="text-white">
+                  <li>question:{q.question}</li>
+                  <li>choice1:{q.choice1}</li>
+                  <li>choice2:{q.choice2}</li>
+                  <li>choice3:{q.choice3}</li>
+                  <li>answer:{q.answer}</li>
+                </ol>
+              </div>
+            );
+          })}
       </React.Fragment>
     );
   }
 }
-const style1 = {
-  color: "white",
-  fontSize: "15px",
-  textInline: "block"
-};
+
 const headerStyle = {
   color: "#fff",
   textAlign: "center"
