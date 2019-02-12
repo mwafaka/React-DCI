@@ -6,9 +6,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: url(/img/desk.jpeg);
+  background-size: 100%;
+  background-position: bottom;
+  background-color: antiquewhite;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+styling {
+  width: 90%;
+  padding-top: 10px;
+  margin: auto;
 }

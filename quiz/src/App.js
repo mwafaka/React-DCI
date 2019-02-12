@@ -69,7 +69,7 @@ class App extends Component {
 
                       <hr />
                       {q.choices.map(a => (
-                        <label key={a} className="text-success">
+                        <label key={a} className="text-secondary">
                           <input
                             type="checkbox"
                             onClick={() => this.handleAnswer(q, a)}
@@ -79,14 +79,7 @@ class App extends Component {
                         </label>
                       ))}
                       <br />
-                      <form>
-                        <button
-                          className="btn-danger btn-sm"
-                          reset={() => this.reset(q)}
-                        >
-                          Reset
-                        </button>
-                      </form>
+                      <form />
 
                       <hr />
                     </div>
@@ -102,6 +95,8 @@ class App extends Component {
                 </form>
               )}
             />
+            <hr />
+
             <Route path="/about" component={About} />
           </switch>
         </div>
@@ -109,10 +104,5 @@ class App extends Component {
     );
   }
 }
-const style3 = {
-  fontSize: "25px",
-  borderColor: "black",
-  borderWidth: "1"
-};
 
 export default App;

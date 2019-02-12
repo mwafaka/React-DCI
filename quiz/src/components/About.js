@@ -1,96 +1,89 @@
 import React from "react";
-import {
-  Col,
-  Button,
-  Form,
-  FormGroup,
-  Label,
-  Input,
-  FormText
-} from "reactstrap";
+import { Col, Form, FormGroup, Label, Input } from "reactstrap";
 
 class About extends React.Component {
+  state = {};
   render() {
     return (
-      <Form>
-        <FormGroup row>
-          <Label for="exampleEmail" sm={2}>
-            Email
-          </Label>
-          <Col sm={10}>
-            <Input
-              type="email"
-              name="email"
-              id="exampleEmail"
-              placeholder="with a placeholder"
-            />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="examplePassword" sm={2}>
-            Password
-          </Label>
-          <Col sm={10}>
-            <Input
-              type="password"
-              name="password"
-              id="examplePassword"
-              placeholder="password placeholder"
-            />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="exampleSelect" sm={2}>
-            Select
-          </Label>
-          <Col sm={10}>
-            <Input type="select" name="select" id="exampleSelect" />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="exampleSelectMulti" sm={2}>
-            Select Multiple
-          </Label>
-          <Col sm={10}>
-            <Input
-              type="select"
-              name="selectMulti"
-              id="exampleSelectMulti"
-              multiple
-            />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="exampleText" sm={2}>
-            Text Area
-          </Label>
-          <Col sm={10}>
-            <Input type="textarea" name="text" id="exampleText" />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="exampleFile" sm={2}>
-            File
-          </Label>
-          <Col sm={10}>
-            <Input type="file" name="file" id="exampleFile" />
-            <FormText color="muted">
-              This is some placeholder block-level help text for the above
-              input. It's a bit lighter and easily wraps to a new line.
-            </FormText>
-          </Col>
-        </FormGroup>
+      <Form className="styling">
+        <header style={headerStyle}>
+          <h1>Add your Questions</h1>
 
+          <header style={headerStyle} />
+        </header>
         <FormGroup row>
-          <Col sm={{ size: 10 }} />
+          <Label sm={2} className="text-secondary">
+            Question
+          </Label>
+          <Col sm={10}>
+            <Input
+              type="text"
+              // name="email"
+              // id="exampleEmail"
+              placeholder="Add your Questions"
+            />
+          </Col>
         </FormGroup>
-        <FormGroup check row>
-          <Col sm={{ size: 10, offset: 2 }}>
-            <Button>Submit</Button>
+        <FormGroup row>
+          <Label sm={2} className="text-secondary">
+            Choice 1
+          </Label>
+          <Col sm={10}>
+            <Input
+              type="text"
+              // name="email"
+              // id="exampleEmail"
+              placeholder="Add your Questions"
+            />
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label sm={2} className="text-secondary">
+            Choice 2
+          </Label>
+          <Col sm={10}>
+            <Input
+              type="text"
+              // name="email"
+              // id="exampleEmail"
+              placeholder="Add your Questions"
+            />
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label sm={2} className="text-secondary">
+            Choice 3
+          </Label>
+          <Col sm={10}>
+            <Input
+              type="text"
+              // name="email"
+              // id="exampleEmail"
+              placeholder="Add your Questions"
+            />
+          </Col>
+        </FormGroup>
+        <FormGroup row>
+          <Label sm={2} className="text-secondary">
+            Correct Answer
+          </Label>
+          <Col sm={10}>
+            <Input
+              type="text"
+              // name="email"
+              // id="exampleEmail"
+              placeholder="Add your Questions"
+            />
           </Col>
         </FormGroup>
       </Form>
     );
   }
 }
+
+const headerStyle = {
+  background: "grey",
+  color: "#fff",
+  textAlign: "center"
+};
 export default About;

@@ -1,7 +1,7 @@
 var quiz = [
   {
     id: 1,
-    question: "Q1: Who came up with the theory of relativity?",
+    question: " Who came up with the theory of relativity?",
     image:
       "http://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Albert_Einstein_Head.jpg/220px-Albert_Einstein_Head.jpg",
     choices: [
@@ -16,7 +16,7 @@ var quiz = [
   },
   {
     id: 2,
-    question: "Q2: Who is on the two dollar bill?",
+    question: " Who is on the two dollar bill?",
     image:
       "http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/US_%242_obverse-high.jpg/320px-US_%242_obverse-high.jpg",
     choices: [
@@ -31,7 +31,7 @@ var quiz = [
   },
   {
     id: 3,
-    question: "Q3: What event began on April 12, 1861?",
+    question: " What event began on April 12, 1861?",
     image: "",
     choices: [
       "First manned flight",
