@@ -23,6 +23,7 @@ class About extends React.Component {
     // if (this.state.question === "") {
     //   return;
     // }
+
     const {
       question,
       choice1,
@@ -40,22 +41,39 @@ class About extends React.Component {
       answer
     };
 
+    var newQuestons = this.state.questions;
+    newQuestons.push(newQuestion);
+
     this.setState({
-      questions: [...questions, newQuestion],
+      questions: newQuestons,
       question: "",
       choice1: "",
       choice2: "",
       choice3: "",
       answer: ""
     });
+
+    /////////localStorage///////////
+
+    ////////////////////////////////////////
     e.target.reset();
   };
+
   deleteItem = (e, indexToRemove) => {
     const questions = this.state.questions.filter(
       (ele, index) => index !== indexToRemove
     );
     this.setState({ questions });
   };
+  componentDidMount() {
+    let storedQuestions = localStorage.getItem("key");
+    if (storedQuestions) {
+      this.setState({
+        questions: JSON.parse(storedQuestions)
+      });
+    }
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -73,7 +91,6 @@ class About extends React.Component {
                   onChange={this.onChange}
                   type="text"
                   name="question"
-                  // value={this.state.name}
                   placeholder="Add your Questions"
                 />
               </Col>
@@ -87,7 +104,6 @@ class About extends React.Component {
                   onChange={this.onChange}
                   type="text"
                   name="choice1"
-                  // id="exampleEmail"
                   placeholder="Add Choice"
                 />
               </Col>
@@ -101,7 +117,6 @@ class About extends React.Component {
                   onChange={this.onChange}
                   type="text"
                   name="choice2"
-                  // id="exampleEmail"
                   placeholder="Add Choice"
                 />
               </Col>
@@ -115,7 +130,6 @@ class About extends React.Component {
                   onChange={this.onChange}
                   type="text"
                   name="choice3"
-                  // id="exampleEmail"
                   placeholder="Add Choice"
                 />
               </Col>
@@ -129,7 +143,6 @@ class About extends React.Component {
                   onChange={this.onChange}
                   type="text"
                   name="answer"
-                  // id="exampleEmail"
                   placeholder="Add Answer"
                 />
               </Col>

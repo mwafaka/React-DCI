@@ -79,7 +79,9 @@ class App extends Component {
                     </div>
                   ))}
                   <form>
-                    <button className="btn-secondary btn-sm">Result</button>
+                    <button className=" btn btn-secondary btn-sm">
+                      Result
+                    </button>
                   </form>
                   <Modal1
                     toggleModalHandler={this.toggleModal}
