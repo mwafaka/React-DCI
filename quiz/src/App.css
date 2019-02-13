@@ -40,3 +40,11 @@
 .modal-header {
   background-color: gray;
 }
+.col-10 {
+  margin: auto;
+  margin-top: 6px;
+}
+.col-9 {
+  margin: auto;
+  margin-top: 6px;
+}
